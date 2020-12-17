@@ -2,18 +2,21 @@ package com.cg.employeepayroll.dto;
 
 import lombok.Data;
 
-public @Data class EmployeePayrollDTO {
+import java.time.LocalDate;
 
-	public String name;
-	public long salary;
+import com.cg.employeepayroll.model.EmployeePayrollData;
 
-	@Override
-	public String toString() {
-		return "EmployeePayrollDTO [name=" + name + ", salary=" + salary + "]";
+@Data
+public class EmployeePayrollDTO {
+	
+	private String name;
+	private long salary;
+	
+	public EmployeePayrollDTO(EmployeePayrollData employeePayroll) {
+		this.setName(employeePayroll.getName());
+		this.setSalary(employeePayroll.getSalary());
 	}
-
-	public EmployeePayrollDTO(String name, long salary) {
-		this.name = name;
-		this.salary = salary;
-	}
+	
+	public EmployeePayrollDTO() {}
+	
 }
