@@ -467,3 +467,10 @@ java.lang.Error: Unresolved compilation problem:
 2020-12-17 11:43:06.430  INFO 19644 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Started EmployeePayrollApplication in 2.59 seconds (JVM running for 3.086)
 2020-12-17 11:43:06.432  INFO 19644 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Employee Payroll Application Started in COMMON  Environment
 2020-12-17 11:43:06.434  INFO 19644 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Employee Payroll DB User is root Environment
+2020-12-17 11:57:39.889  INFO 4248 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Starting EmployeePayrollApplication using Java 14.0.2 on DESKTOP-Q5SED1R with PID 4248 (D:\Capgemini_java_training\EmployeePayrollApplication\target\classes started by krove in D:\Capgemini_java_training\EmployeePayrollApplication)
+2020-12-17 11:57:39.891 DEBUG 4248 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-17 11:57:39.892  INFO 4248 --- [restartedMain] c.c.e.EmployeePayrollApplication         : No active profile set, falling back to default profiles: default
+2020-12-17 11:57:41.902  WARN 4248 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-17 11:57:42.113  INFO 4248 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Started EmployeePayrollApplication in 2.458 seconds (JVM running for 2.943)
+2020-12-17 11:57:42.115  INFO 4248 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Employee Payroll Application Started in COMMON  Environment
+2020-12-17 11:57:42.116  INFO 4248 --- [restartedMain] c.c.e.EmployeePayrollApplication         : Employee Payroll DB User is root Environment
