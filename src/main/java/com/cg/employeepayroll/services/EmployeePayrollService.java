@@ -32,7 +32,7 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 
 	@Override
 	public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO employeePayrollDTO) {
-		EmployeePayrollData employeeData = new EmployeePayrollData(employeePayrollDTO.name, employeePayrollDTO.salary);
+		EmployeePayrollData employeeData = new EmployeePayrollData(employeePayrollDTO.getName(), employeePayrollDTO.getSalary());
 		employeeData = employeeRepository.save(employeeData);
 		employeeDataList.add(employeeData);
 		return employeeData;
@@ -44,8 +44,8 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 		if(employeeData != null) {
 			employeeDataList.remove(employeeData);
 			deleteEmployeePayrolllData(empId);
-			employeeData.setName(employeePayrollDTO.name);
-			employeeData.setSalary(employeePayrollDTO.salary);
+			employeeData.setName(employeePayrollDTO.getName());
+			employeeData.setSalary(employeePayrollDTO.getSalary());
 			employeeData = employeeRepository.save(employeeData);
 			employeeDataList.add(employeeData);
 		}
