@@ -12,7 +12,7 @@ public @Data class EmployeePayrollDTO {
 			message = "Employee name is Invalid")
 	public String name;
 	@Min(value = 30000, message = "Salary should be more than Rs. 30,000")
-	@Max(value = 100000, message = "Salary should be less than Rs. 80,000")
+	@Max(value = 100000, message = "Salary should be less than Rs. 100,000")
 	public long salary;
 
 	public EmployeePayrollDTO(String name, long salary) {
