@@ -2,8 +2,6 @@ package com.cg.employeepayroll.dto;
 
 import lombok.Data;
 
-import java.time.LocalDate;
-
 import com.cg.employeepayroll.model.EmployeePayrollData;
 
 @Data
@@ -17,6 +15,8 @@ public class EmployeePayrollDTO {
 		this.setSalary(employeePayroll.getSalary());
 	}
 	
-	public EmployeePayrollDTO() {}
+	public EmployeePayrollDTO() {
+		
+	}
 	
 }
