@@ -1,22 +1,22 @@
 package com.cg.employeepayroll.dto;
 
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import lombok.Data;
 
-import com.cg.employeepayroll.model.EmployeePayrollData;
+public @Data class EmployeePayrollDTO { 
+	
+	@Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}([ ][A-Z]{1}[a-zA-Z\\s]{2,})?$",
+			message = "Employee name is Invalid")
+	public String name;
+	@Min(value = 30000, message = "Salary should be more than Rs. 30,000")
+	@Max(value = 100000, message = "Salary should be less than Rs. 80,000")
+	public long salary;
 
-@Data
-public class EmployeePayrollDTO {
-	
-	private String name;
-	private long salary;
-	
-	public EmployeePayrollDTO(EmployeePayrollData employeePayroll) {
-		this.setName(employeePayroll.getName());
-		this.setSalary(employeePayroll.getSalary());
+	public EmployeePayrollDTO(String name, long salary) {
+		this.name = name;
+		this.salary = salary;
 	}
-	
-	public EmployeePayrollDTO() {
-		
-	}
-	
 }
