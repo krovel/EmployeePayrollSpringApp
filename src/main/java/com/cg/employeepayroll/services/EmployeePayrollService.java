@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.employeepayroll.dto.EmployeePayrollDTO;
+import com.cg.employeepayroll.exceptions.EmployeePayrollException;
 import com.cg.employeepayroll.model.EmployeePayrollData;
 import com.cg.employeepayroll.repository.EmployeeRepository;
 
@@ -27,7 +28,13 @@ public class EmployeePayrollService implements IEmployeePayrollService {
 
 	@Override
 	public EmployeePayrollData getEmployeePayrollDataById(int empId) {
-		return employeeRepository.findById(empId).get();
+		EmployeePayrollData employeePayrollData = employeeDataList.stream().filter(employeeData -> employeeData.getEmployeeId() == empId)
+								 .findFirst().orElse(null);
+		if(employeePayrollData != null) {
+			return employeeRepository.findById(empId).get();
+		} else {
+			throw new EmployeePayrollException("Employee Not Found");
+		}		
 	}
 
 	@Override
