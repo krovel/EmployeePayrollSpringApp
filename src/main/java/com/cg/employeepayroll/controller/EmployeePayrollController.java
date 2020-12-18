@@ -25,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/employeepayrollservice")
+@Slf4j
 public class EmployeePayrollController {
 	@Autowired
 	private IEmployeePayrollService employeePayrollService;
@@ -44,10 +45,19 @@ public class EmployeePayrollController {
 		ResponseDTO respDTO = new ResponseDTO("Get Call success for ID  ", empData);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
+	
+	@GetMapping("/department/{department}")
+	public ResponseEntity<ResponseDTO> getEmployeePayrollDataByDepartment(@PathVariable("department") String department) {
+		List<EmployeePayrollData> empList=null;
+		empList =employeePayrollService.getEmployeePayrollDataByDepartment(department);
+		ResponseDTO respDTO = new ResponseDTO("Get Call success for ID  ", empList);
+		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
+	}
 
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDTO> addEmployeePayrollData(@Valid@RequestBody EmployeePayrollDTO empPayrollDTO) {
 		EmployeePayrollData empData=null;
+		log.debug(empPayrollDTO.toString());
 		empData =employeePayrollService.createEmployeePayrollData(empPayrollDTO);
 		ResponseDTO respDTO = new ResponseDTO("Created EmployeePayroll Data Success", empData);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
