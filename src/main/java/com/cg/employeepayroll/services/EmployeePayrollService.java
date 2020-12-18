@@ -3,16 +3,24 @@ package com.cg.employeepayroll.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.employeepayroll.dto.EmployeePayrollDTO;
 import com.cg.employeepayroll.exceptions.EmployeePayrollException;
 import com.cg.employeepayroll.model.EmployeePayrollData;
+import com.cg.employeepayroll.repository.EmployeePayrollRepository;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class EmployeePayrollService implements IEmployeePayrollService{
 	private List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
-
+    
+	@Autowired
+	private EmployeePayrollRepository employeePayrollRepository;
+	
 	@Override
 	public List<EmployeePayrollData> getEmployeePayrollData() {
 		return employeePayrollList;
@@ -27,9 +35,10 @@ public class EmployeePayrollService implements IEmployeePayrollService{
 	@Override
 	public EmployeePayrollData createEmployeePayrollData(EmployeePayrollDTO empPayrollDTO) {
 		EmployeePayrollData empData = null;
-		empData = new EmployeePayrollData(employeePayrollList.size() + 1, empPayrollDTO);
+		empData = new EmployeePayrollData(empPayrollDTO);
 		employeePayrollList.add(empData);
-		return empData;
+		log.debug("EmployeeData"+empData.toString());
+		return employeePayrollRepository.save(empData);
 	}
 
 	@Override
