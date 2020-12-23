@@ -13,14 +13,14 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.ToString;
 
 public @ToString class EmployeePayrollDTO {
-	@Pattern(regexp="^[A-Z]{1}[a-zA-Z]{2,}$",message="Employee Name Invalid")
+	@Pattern(regexp="^^[A-Z]{1}[a-z]{2,}([ ][A-Z]{1}[a-z]{2,})?$",message="Employee Name Invalid")
 	public String name;
 	@Min(value=500,message="Employee Wage should be more than 500")
 	public long salary;
 	@Pattern(regexp="male|female",message="Gender needs to be male or female")
 	public String gender;
 	
-	@JsonFormat(pattern="dd MMM yyyy")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	@NotNull(message="startDate should not be empty")
 	@PastOrPresent(message="startDate should be past or todays date")
 	public LocalDate startDate;
